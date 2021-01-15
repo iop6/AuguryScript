@@ -18,13 +18,13 @@ def Get_Bi_Directional():
   print('Start')
 #------------------------------------------------------------------------------------------------#
   src_dst = []
-#  results = requests.request("GET", url+"/results/10952004?format=json", data=payload, headers=headers)
-#  BD_results = open("Bi_Directional.json", "r+")
-#  BD_results.write(results)
+  #results = requests.request("GET", url+"/results/10952004?format=json", data=payload, headers=headers)
+  #BD_results = open("Bi_Directional.json", "w")
+  #BD_results.write(results.text)
+  #BD_results.close()
 
-  with open('Bi_Directional.json') as f:
-    lines = f.read()
-    for line in lines:
+  with open("Bi_Directional.json", "r") as f:
+    for line in f:
       json_line = json.loads(line)
       src_ip = json_line["src_ip_addr"]
       dst_ip = json_line["dst_ip_addr"]
@@ -34,7 +34,7 @@ def Get_Bi_Directional():
       for value in src_dst:
         if value == flipped:
           print(value)
-#  BD_results.close()
+          
 #------------------------------------------------------------------------------------------------#
   print('Done')
 
