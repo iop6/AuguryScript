@@ -1,6 +1,7 @@
 import requests
 import json
 
+#TEST
 url = "https://augury5.heliumrain.com/api"
 payload = ""
 headers = {"Content-Type": "application/x-www-form-urlencoded", "Authorization": "bef11806eb0dcbed79dfe0e94594b7322097907c"}
