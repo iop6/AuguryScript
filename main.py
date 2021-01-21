@@ -4,7 +4,8 @@ import json
 #Test query 10952004
 url = "https://augury5.heliumrain.com/api"
 payload = ""
-headers = {"Content-Type": "application/x-www-form-urlencoded", "Authorization": "bef11806eb0dcbed79dfe0e94594b7322097907c"}
+auth = str(input("What is your auth key? "))
+headers = {"Content-Type": "application/x-www-form-urlencoded", "Authorization": auth}
 
 def Get_Flags():
   query_id = str(input("What is your query ID? "))
@@ -101,6 +102,7 @@ def iplookup():
 
 def Augury_Hunting():
   print('------------------------------------------------')
+  #Collects inputs from user reguarding the specific query IDs and IPs to hunt.
   query_ids = []
   hunted_ips = []
   looper1 = False 
@@ -122,6 +124,7 @@ def Augury_Hunting():
           looper2 = True
     looper1 = True
 
+  #Retrieve results from previous input to generate desired results and append them to a new file.
   hunting = open("hunting_results.json", "w")
   for id in query_ids:
     results = requests.request("GET", url+"/results/" + id + "?format=json", data=payload, headers=headers)
@@ -130,13 +133,15 @@ def Augury_Hunting():
     hunting.close()
   print('\n------------------------------------------------')
 
+  
+
 
 
 
 #Get_Flags()
-#Get_Bi_Directional()
+Get_Bi_Directional()
 #Get_Country_Codes()
 #iplookup()
-Augury_Hunting()
+#Augury_Hunting()
 
 
