@@ -122,6 +122,7 @@ def Augury_Hunting():
           looper2 = True
     looper1 = True
 
+  hunting = open("hunting_results.json", "w")
   for id in query_ids:
     results = requests.request("GET", url+"/results/" + id + "?format=json", data=payload, headers=headers)
     hunting = open("hunting_results.json", "a")
